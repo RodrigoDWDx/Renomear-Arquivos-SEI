@@ -1,0 +1,45 @@
+#Importando
+import time
+import os
+
+#Criando variaveis dos Meses para usar no nome do arquivo
+mes = ('Janeiro','Fevereiro','Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
+       'Setembro', 'Outubro', 'Novembro', 'Dezembro')
+
+#Puxando a data local
+local = time.localtime()
+
+#Criando os diretorios
+dir = "C:/Users/SECULT0011/Downloads/anexos"
+dir2 = "C:/Users/SECULT0011/Desktop/IATR"
+
+#Criando o Loop para cada um dos arquivos
+for g in os.listdir(dir):
+    #Escolhendo o diretorio e o arquivo anterior
+    old_path = os.path.join(dir,g)
+    #Criando Alguns Novos Nomes para os Arquivos
+    if 'DivAtiva' in g:
+        new_name = f'Certidão de Divida Ativa Estadual.pdf'
+        new_path = os.path.join(dir2, new_name)
+    elif 'Debitos Trabalhistas' in g:
+        new_name = f'Certidão Negativa de Debitos Trabalhistas.pdf'
+        new_path = os.path.join(dir2, new_name)
+    elif 'ICMS' in g:
+        new_name = f'Certidão Negativa de Debitos Fiscais.pdf'
+        new_path = os.path.join(dir2, new_name)
+    elif 'Municipal' in g:
+        new_name = f'Certidão Municipal.pdf'
+        new_path = os.path.join(dir2, new_name)
+    elif 'FGTS' in g:
+        new_name = f'Certidão de Regularidade do FGTS.pdf'
+        new_path = os.path.join(dir2, new_name)
+    elif 'Federais' in g:
+        new_name = ('Certidão Federal.pdf')
+        new_path = os.path.join(dir2, new_name)
+    else:
+        name = g
+        name = name[:5]
+        new_name = f'Nota Fiscal XXXXXXXXXXXXXXXXXXXXXXXXX -{mes[local.tm_mon-1]}- {name}.pdf'
+        new_path = os.path.join(dir2, new_name)
+    #Renomeando todos em menos de 1s
+    os.rename(old_path, new_path)
