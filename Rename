@@ -10,8 +10,8 @@ mes = ('Janeiro','Fevereiro','Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agost
 local = time.localtime()
 
 #Criando os diretorios
-dir = "C:/Users/SECULT0011/Downloads/anexos"
-dir2 = "C:/Users/SECULT0011/Desktop/IATR"
+dir = "C:/Users/XXXXXXXXXXX/Downloads/anexos"
+dir2 = "C:/Users/XXXXXXXXXX/Desktop/XXXX"
 
 #Criando o Loop para cada um dos arquivos
 for g in os.listdir(dir):
@@ -31,7 +31,7 @@ for g in os.listdir(dir):
         new_name = f'Certidão Municipal.pdf'
         new_path = os.path.join(dir2, new_name)
     elif 'FGTS' in g:
-        new_name = f'Certidão de Regularidade do FGTS.pdf'
+        new_name = f'Certidão de Regularidade.pdf'
         new_path = os.path.join(dir2, new_name)
     elif 'Federais' in g:
         new_name = ('Certidão Federal.pdf')
